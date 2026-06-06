@@ -1,21 +1,27 @@
-import { Button } from "@/components/ui/button"
+import Counter from "./components/Counter/Counter";
+import Hello from "./components/Hello";
+import Names from "./components/Names";
+import Auth from "./components/SignIn/Auth";
 
-export function App() {
-  return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
-    </div>
-  )
+async function getData() {
+	try {
+		const res = await fetch("../ata.json");
+		const data = await res.json();
+		console.log(data);
+	} catch {
+		console.log("error happend");
+	}
 }
 
-export default App
+export function App() {
+	return (
+		<>
+			<Hello />
+			<Counter />
+			<Names />
+			<Auth />
+		</>
+	);
+}
+
+export default App;

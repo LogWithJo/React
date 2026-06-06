@@ -12,7 +12,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@biomejs/biome": "^2.4.16",
     "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource-variable/noto-sans": "^5.2.10",
     "@tailwindcss/vite": "^4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
