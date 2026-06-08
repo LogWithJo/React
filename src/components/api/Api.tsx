@@ -1,12 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect, useRef } from "react";
 import Cards from "./Cards/Cards";
+import Cart from "./Cart";
+import { useProducts } from "./Context/ShoppingCartContext";
 import ShowError from "./ShowError";
 import Spin from "./Spin";
 
 function Api() {
-	const [data, setData] = useState<string[]>([]);
-	const [state, setState] = useState(true);
-	const [error, setError] = useState(false);
+	const { setData, setState, setError } = useProducts();
 	const api = useRef(true);
 	useEffect(() => {
 		async function getData() {
@@ -16,10 +17,9 @@ function Api() {
 					const res = await fetch("https://api.escuelajs.co/api/v1/products");
 					const data = await res.json();
 					if (res.status === 200) {
-						setData(data.slice(0, 6));
+						setData(data.slice(0, 8));
 						setState(false);
 					}
-                    console.log(data.slice(0, 6))
 				} catch {
 					setState(false);
 					setError(true);
@@ -27,12 +27,14 @@ function Api() {
 			}
 		}
 		getData();
-	}, []);
+	}, [setData, setError, setState]);
+
 	return (
 		<div>
-			<Cards data={data} />
-			<Spin state={state} />
-			<ShowError erorr={error} />
+			<Cart />
+			<Cards cart={false} />
+			<Spin />
+			<ShowError />
 		</div>
 	);
 }

@@ -58,9 +58,8 @@ function Button({
       data-size={size}
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
-    ></Comp>
+    />
   )
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export { Button, buttonVariants }

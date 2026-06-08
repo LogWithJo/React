@@ -1,7 +1,9 @@
 import { cn } from "@/lib/utils";
 import { Spinner } from "@/components/ui/spinner";
+import { useProducts } from "./Context/ShoppingCartContext";
 
-function Spin({ state }: { state: boolean }) {
+function Spin() {
+	const {state} = useProducts()
 	return (
 		<div
 			className={cn(
