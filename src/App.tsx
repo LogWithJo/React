@@ -4,7 +4,9 @@ import Counter from "./components/Counter/Counter";
 import Hello from "./components/Hello";
 import Names from "./components/Names";
 import Auth from "./components/SignIn/Auth";
-import { ThemeProvider } from "./components/theme-provider";
+import ThreeCounters from "./components/Counters/ThreeCounters";
+import Timer from "./components/Timer";
+import Memo from "./components/Memo";
 
 export function App() {
 	return (
@@ -16,6 +18,9 @@ export function App() {
 			<ShoppingCartProvider>
 				<Api />
 			</ShoppingCartProvider>
+			<Timer />
+			<ThreeCounters />
+			<Memo />
 		</>
 	);
 }

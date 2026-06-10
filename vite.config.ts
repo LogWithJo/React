@@ -6,7 +6,6 @@ import { defineConfig } from "vite"
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/react/",
   resolve: {
     alias: {
 
@@ -17,5 +16,6 @@ export default defineConfig({
     host: true,
     port: 2011,
     strictPort: true,
-  }
+  },
+  base: "/React/"
 })

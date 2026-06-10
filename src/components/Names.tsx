@@ -1,38 +1,51 @@
-import { type KeyboardEvent, useState } from "react";
-import { Button } from "./ui/button";
+import { type KeyboardEvent, useEffect, useRef, useState } from "react";
 import { Input } from "./ui/Input";
 
 function Names() {
-	const [Name, setName] = useState("Everybody");
-	const [inputValue, setInputValue] = useState("");
-	const handleEnter = (e: KeyboardEvent<HTMLInputElement>) => {
+	const inputRefFirst = useRef<null | HTMLInputElement>(null)
+	const inputRefLast = useRef<null | HTMLInputElement>(null)
+	const [Name, setName] = useState<{firstName: string, lastName: string}>({firstName: "Yousef", lastName: "Ashraf"});
+	const [inputValue, setInputValue] = useState<{firstName: string, lastName: string}>({firstName: "", lastName: ""});
+	const handleEnter = (e: KeyboardEvent<HTMLInputElement>, action: string) => {
 		if (e.key === "Enter") {
-			setName(inputValue);
-			setInputValue("");
+			if (action === "first") {
+				setName((prev) => ({...prev, firstName: inputValue.firstName}));
+				if (!inputRefLast.current) return 
+				inputRefLast.current.focus()
+			} else {
+				setName((prev) => ({...prev, lastName: inputValue.lastName}))
+			}
+			setInputValue({firstName: "", lastName: ""});
 		}
 	};
+	useEffect(() => {
+		if (!inputRefFirst.current) return;
+		inputRefFirst.current.focus()
+	}, [])
 	return (
 		<div>
 			<div className="w-full text-center flex justify-center items-center p-5 text-2xl">
-				Hello {Name}, Youssef loves You 😍😍😍😍
+				Hello {Name.firstName} {Name.lastName}, Youssef loves You 😍😍😍😍
 			</div>
 			<div className="flex px-5 gap-1 md:px-20 md:gap-5">
 				<Input
-					value={inputValue}
-					placeholder="Enter Your Name"
+					value={inputValue.firstName}
+					placeholder="Enter Your first Name"
 					onKeyDown={(e) => {
-						handleEnter(e);
+						handleEnter(e, "first");
 					}}
-					onChange={(e) => {setInputValue(e.target.value); console.log(e.target.value)}}
+					ref={inputRefFirst}
+					onChange={(e) => {setInputValue((prev) => ({...prev, firstName: e.target.value}))}}
 				/>
-				<Button
-					onClick={() => {
-						setName(inputValue);
-						setInputValue("");
+				<Input
+					value={inputValue.lastName}
+					placeholder="Enter Your last Name"
+					onKeyDown={(e) => {
+						handleEnter(e, "last");
 					}}
-				>
-					Enter Name
-				</Button>
+					ref={inputRefLast}
+					onChange={(e) => {setInputValue((prev) => ({...prev, lastName: e.target.value}))}}
+				/>
 			</div>
 		</div>
 	);

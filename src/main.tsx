@@ -5,7 +5,6 @@ import "./index.css";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "@/components/theme-provider.tsx";
 import App from "./App.tsx";
-import ShoppingCartProvider from "./components/api/Context/ShoppingCartContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
 	<StrictMode>
