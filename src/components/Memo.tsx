@@ -8,7 +8,8 @@ function Memo() {
 	return (
 		<div className="p-5 flex flex-col gap-4">
 			<Header />
-			
+			<div>age: {age}</div>
+			<div>salary: {salary}</div>
 			<div>
 				<Button
 					onClick={() => {
@@ -49,14 +50,4 @@ export default Memo;
 
 function Header() {
 	return (<div className="text-2xl">React.Memo</div>)
-}
-
-function Show({state, data}: {state: string, data: string | number}) {
-	if (state === "name") {
-		console.log("name")
-		return (<div>name: {data}</div>)
-	} else {
-		console.log("age")
-		return (<div>age: {data}</div>)
-	}
 }
