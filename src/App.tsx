@@ -12,7 +12,7 @@ export function App() {
 	return (
 		<>
 			<Hello />
-			<main>
+			{/* <main> */}
 				<Counter />
 				<Names />
 				<Auth />
@@ -22,7 +22,7 @@ export function App() {
 				<Timer />
 				<ThreeCounters />
 				<Memo />
-			</main>
+			{/* </main> */}
 		</>
 	);
 }
