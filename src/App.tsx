@@ -12,6 +12,7 @@ export function App() {
 	return (
 		<>
 			<Hello />
+		<main>
 			<Counter />
 			<Names />
 			<Auth />
@@ -21,6 +22,7 @@ export function App() {
 			<Timer />
 			<ThreeCounters />
 			<Memo />
+		</main>
 		</>
 	);
 }

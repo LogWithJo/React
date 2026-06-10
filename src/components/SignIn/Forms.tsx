@@ -30,9 +30,6 @@ function Forms({ setError }: { setError: any }) {
 						if (user.password === "") {
 							setError(true);
 						}
-						console.log(
-							`Your Name is ${user.username}, Your Password is ${user.password}`,
-						);
 					}}
 				>
 					<div className="space-y-2">

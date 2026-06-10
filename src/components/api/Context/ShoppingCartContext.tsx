@@ -68,7 +68,6 @@ export function useProducts() {
 	const context = useContext(ShoppingCartContext);
 
 	if (!context) {
-		console.log(context);
 		throw new Error("useProducts must be used inside ProductsProvider");
 	}
 
