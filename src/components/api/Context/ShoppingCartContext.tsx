@@ -1,5 +1,4 @@
 /* eslint-disable react-refresh/only-export-components */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
 	createContext,
 	type Dispatch,
@@ -7,16 +6,16 @@ import {
 	useContext,
 	useEffect,
 	useState,
-} from "react";
+} from "react"; 
 
 interface ShoppingCartContextType {
-	setCart: Dispatch<SetStateAction<any>>;
-	setData: Dispatch<SetStateAction<any>>;
+	setCart: Dispatch<SetStateAction<string[]>>;
+	setData: Dispatch<SetStateAction<string[]>>;
 	setState: Dispatch<SetStateAction<boolean>>;
 	setError: Dispatch<SetStateAction<boolean>>;
 	setShowCart: Dispatch<SetStateAction<boolean>>;
-	cart: any;
-	data: any[];
+	cart: string[];
+	data: string[];
 	state: boolean;
 	error: boolean;
 	showCart: boolean;

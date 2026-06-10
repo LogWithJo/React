@@ -1,8 +1,7 @@
-/** biome-ignore-all lint/suspicious/noShadowRestrictedNames: <explanation> */
 import clsx from "clsx";
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { InfoIcon } from "lucide-react";
+import type { Dispatch, SetStateAction } from "react";
 import {
 	Alert,
 	AlertAction,
@@ -11,8 +10,14 @@ import {
 } from "@/components/ui/alert";
 import { Button } from "../ui/button";
 
-function Alerts({ setError, Error }: { setError: any; Error: any }) {
-	const appearance = Error ? "block" : "hidden";
+function Alerts({
+	setError,
+	Eror,
+}: {
+	setError: Dispatch<SetStateAction<boolean>>;
+	Eror: boolean;
+}) {
+	const appearance = Eror ? "block" : "hidden";
 	return (
 		<div className={clsx("fixed w-full h-full top-0 left-0", appearance)}>
 			<div className="layout backdrop-blur-2xl absolute left-0 w-full h-full"></div>
