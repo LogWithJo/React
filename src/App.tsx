@@ -2,6 +2,7 @@ import Api from "./components/api/Api";
 import ShoppingCartProvider from "./components/api/Context/ShoppingCartContext";
 import Counter from "./components/Counter/Counter";
 import ThreeCounters from "./components/Counters/ThreeCounters";
+import FormSubmition from "./components/FormSubmition";
 import Hello from "./components/Hello";
 import Memo from "./components/Memo";
 import Names from "./components/Names";
@@ -12,7 +13,8 @@ export function App() {
 	return (
 		<>
 			<Hello />
-			{/* <main> */}
+			<main>
+				<FormSubmition />
 				<Counter />
 				<Names />
 				<Auth />
@@ -22,7 +24,7 @@ export function App() {
 				<Timer />
 				<ThreeCounters />
 				<Memo />
-			{/* </main> */}
+			</main>
 		</>
 	);
 }

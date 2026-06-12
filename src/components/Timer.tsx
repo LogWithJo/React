@@ -11,7 +11,7 @@ type ButtonState = (typeof Button)[keyof typeof Button];
 function Timer() {
 	const intervalRef = useRef<number | undefined>(undefined);
 	const [timer, setTimer] = useState(0);
-	const [start, setStart] = useState(true);
+	const [start, setStart] = useState(false);
 	useEffect(() => {
 		if (!start) return;
 		intervalRef.current = setInterval(() => {
